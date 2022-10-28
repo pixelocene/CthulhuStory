@@ -1,0 +1,17 @@
+language: c
+
+env:
+  - LUA='Lua 5.3'
+
+before_install:
+  - bash .travis_setup.sh
+
+install:
+  - sudo apt-get update -qq
+  - sudo luarocks install busted
+
+script: make tests
+
+branches:
+  except:
+    - gh-pages
